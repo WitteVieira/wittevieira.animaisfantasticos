@@ -18,9 +18,8 @@ accordion.init();
 
 const tabNav = new TabNav(
   '[data-tab="menu"] li',
-  '[data-tab="content] section'
+  '[data-tab="content"] section',
 );
-
 tabNav.init();
 
 initModal();
