@@ -18,7 +18,6 @@ export default class initModal {
 
   // adiciona o evento de toggle ao modal
   eventToggleModal(event) {
-    console.log(this);
     event.preventDefault();
     this.toggleModal();
   }
@@ -39,7 +38,7 @@ export default class initModal {
 
   init() {
     if (this.botaoAbrir && this.botaoFechar && this.containerModal) {
-      this.AddModalEvents();
+      this.addModalEvents();
     }
     return this;
   }

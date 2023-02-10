@@ -23,7 +23,7 @@ const tabNav = new TabNav(
 tabNav.init();
 
 const modal = new Modal(
-  '[data-modal="abrir"]',
+  '[data-modal="abrir"',
   '[data-modal="fechar"]',
   '[data-modal="container"]',
 );
