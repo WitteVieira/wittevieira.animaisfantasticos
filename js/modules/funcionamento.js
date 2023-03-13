@@ -3,6 +3,7 @@ export default class Funcionamento {
     this.funcionamento = document.querySelector(funcionamento);
     this.activeClass = activeClass;
   }
+
   dadosFuncionamento() {
     this.diasSemana = this.funcionamento.dataset.semana.split(',').map(Number);
     this.horarioSemana = this.funcionamento.dataset.horario.split(',').map(Number);
@@ -16,6 +17,7 @@ export default class Funcionamento {
 
   estaAberto() {
     const semanaAberto = this.diasSemana.indexOf(this.diaAgora) !== -1;
+    // eslint-disable-next-line max-len
     const horarioAberto = this.horarioAgora >= this.horarioSemana[0] && this.horarioAgora < this.horarioSemana[1];
     return semanaAberto && horarioAberto;
   }
