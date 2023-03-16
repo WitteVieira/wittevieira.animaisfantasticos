@@ -8,7 +8,8 @@ export default class Tooltip {
     this.onMouseOver = this.onMouseOver.bind(this);
   }
 
-  // Move a tooltip com base em seus estilos de acordo com a posição do mouse
+  // Move a tooltip com base em seus estilos
+  // de acordo com a posição do mouse
   onMouseMove(event) {
     this.tooltipBox.style.top = `${event.pageY + 20}px`;
     if (event.pageX + 240 > window.innerWidth) {
@@ -18,14 +19,14 @@ export default class Tooltip {
     }
   }
 
-  // Remove o tooltip e os eventos de mousemove e mouseleave
-  onMouseLeave(event) {
+  // Remove a tooltip e os eventos de mousemove e mouseleave
+  onMouseLeave({ currentTarget }) {
     this.tooltipBox.remove();
-    event.currentTarget.removeEventListener('mouseleave', this.onMouseLeave);
-    event.currentTarget.removeEventListener('mousemove', this.onMouseMove);
+    currentTarget.removeEventListener('mouseleave', this.onMouseLeave);
+    currentTarget.removeEventListener('mousemove', this.onMouseMove);
   }
 
-  // Cria a tooltipbox e coloca no body
+  // Cria a tooltip box e coloca no body
   criarTooltipBox(element) {
     const tooltipBox = document.createElement('div');
     const text = element.getAttribute('aria-label');
@@ -35,13 +36,13 @@ export default class Tooltip {
     this.tooltipBox = tooltipBox;
   }
 
-  // Cria a tooltip e adiciona os eventos de mousemove
-  // e mouseleave ao target
-  onMouseOver(event) {
-    // Cria uma tooltipbox e coloca em uma propriedade
-    this.criarTooltipBox(event.currentTarget);
-    event.currentTarget.addEventListener('mousemove', this.onMouseMove);
-    event.currentTarget.addEventListener('mouseleave', this.onMouseLeave);
+  // Cria a tooltip e adiciona os eventos
+  // de mousemove e mouseleave ao target
+  onMouseOver({ currentTarget }) {
+    // cria a tooltipbox e coloca em uma propriedade
+    this.criarTooltipBox(currentTarget);
+    currentTarget.addEventListener('mousemove', this.onMouseMove);
+    currentTarget.addEventListener('mouseleave', this.onMouseLeave);
   }
 
   // Adiciona os eventos de mouseover a cada tooltip
