@@ -199,3 +199,6 @@ export default class SlideNav extends Slide {
     this.activeControlItem = this.activeControlItem.bind(this);
   }
 }
+
+// esse aqui está com problemas
+// preciso ajsustar
